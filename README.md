@@ -51,5 +51,5 @@ In core.p4 we have the main language features lik
 | Switch (main)           |V1Switch(MyParser(),MyVerifyChecksum(),MyIngress(),MyEgress(),MyComputeChecksum(),MyDeparser()) main; |
 
 ## Basic example :
-[logo](https://github.com/Skander-Soussou/P4_tutorial/pod-topo.png "switches-topo")
+![](images/pod-topo.png)
 
