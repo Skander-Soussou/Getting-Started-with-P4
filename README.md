@@ -1,6 +1,6 @@
 # P4 Tutorial
 
-[Va ici](./test)
+[Va ici](./test.md)
 
 ## core.P4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
