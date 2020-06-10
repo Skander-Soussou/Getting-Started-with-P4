@@ -163,6 +163,9 @@ parser MyParser(packet_in packet, /* simply the packet in */
 ************   C H E C K S U M    V E R I F I C A T I O N   *************
 *************************************************************************/
 
+/* MyVerifyChecksum is a control block that performs a checksum on a parsed packet */
+/* in this block you can modify metadata fields (for example setting error-flags) */
+
 control MyVerifyChecksum(inout headers hdr, inout metadata meta) {   
     apply {  }
 }
@@ -176,27 +179,29 @@ control MyIngress(inout headers hdr,
                   inout metadata meta,
                   inout standard_metadata_t standard_metadata) {
     action drop() {
-        mark_to_drop(standard_metadata);
+        mark_to_drop(standard_metadata); /* we define and action in order to drop the packet */
     }
     
+    /* the action's parameters are initialized by the control plane */
     action ipv4_forward(macAddr_t dstAddr, egressSpec_t port) {
-        standard_metadata.egress_spec = port;
-        hdr.ethernet.srcAddr = hdr.ethernet.dstAddr;
-        hdr.ethernet.dstAddr = dstAddr;
-        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
+        standard_metadata.egress_spec = port; /* we change on which port the packet is gonna be sent */
+        hdr.ethernet.srcAddr = hdr.ethernet.dstAddr; /* we initialise the new source mac adresse to the old mac destination adresse */
+        hdr.ethernet.dstAddr = dstAddr; /* initialise the new destination mac adresse to the action's parameter */
+        hdr.ipv4.ttl = hdr.ipv4.ttl - 1; /* decrease the ipv4 time to live */
     }
     
     table ipv4_lpm {
         key = {
-            hdr.ipv4.dstAddr: lpm;
+            hdr.ipv4.dstAddr: lpm; /* matches if the ipv4 destination adress has the longest prefix */ 
         }
-        actions = {
+        actions = { /* list of all the actions possible if it matches*/
             ipv4_forward;
             drop;
             NoAction;
+	    /* the control plane chooses the action for each match */
         }
         size = 1024;
-        default_action = drop();
+        default_action = drop(); /* default action can be changed by the control plane (unless you declare it as const) */
     }
     
     apply {
@@ -219,6 +224,8 @@ control MyEgress(inout headers hdr,
 /*************************************************************************
 *************   C H E C K S U M    C O M P U T A T I O N   **************
 *************************************************************************/
+
+/* calculate checksum of the outgoing packet before the parser */
 
 control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
      apply {
@@ -245,8 +252,9 @@ control MyComputeChecksum(inout headers  hdr, inout metadata meta) {
 *************************************************************************/
 
 control MyDeparser(packet_out packet, in headers hdr) {
-    apply {
-        packet.emit(hdr.ethernet);
+    apply { 
+    	/* emit the headers followed by the data */
+        packet.emit(hdr.ethernet); 
         packet.emit(hdr.ipv4);
     }
 }
