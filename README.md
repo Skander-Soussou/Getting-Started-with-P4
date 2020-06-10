@@ -34,9 +34,18 @@ In core.p4 we have the main language features lik
     * packet_lenght
     ...
     
-    intrinsic metadata are user defined metadata
+    intrinsic metadata: are user defined metadata
     struct{
        bit<9>      egress_spec;  // you can youse this to hold a copy for example
     }
- ###
-    
+ ### P4 program structure:
+ | Section                  | example       |
+| ----------------------- |:---------------:|
+| Headers definition      | header ethernet |
+| Parser                  | parser MyParser(packet_in packet,out headers hdr,inout metadata meta,inout standard_metadata_t standard_metadata) |
+| checksum verification   | control MyVerifyChecksum(inout headers hdr, inout metadata meta) |
+| Ingress processing      | control MyIngress(inout headers hdr,inout metadata meta,inout standard_metadata_t standard_metadata) |
+| Egress processing       | control MyEgress(inout headers hdr,inout metadata meta,inout standard_metadata_t standard_metadata) |
+| checksum computation    | control MyComputeChecksum(inout headers  hdr, inout metadata meta) |
+| Deparser                | control MyDeparser(packet_out packet, in headers hdr) |
+| Switch (main)           |V1Switch(MyParser(),MyVerifyChecksum(),MyIngress(),MyEgress(),MyComputeChecksum(),MyDeparser()) main; |
