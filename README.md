@@ -1,7 +1,4 @@
 # P4 Tutorial
-
-[Va ici](./test.md)
-
 ## core.P4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
 In core.p4 we have the main language features lik
@@ -149,9 +146,9 @@ parser MyParser(packet_in packet, /* simply the packet in */
 
     state parse_ethernet {
         packet.extract(hdr.ethernet);
-        transition select(hdr.ethernet.etherType) {
-            TYPE_IPV4: parse_ipv4;
-            default: accept;
+        transition select(hdr.ethernet.etherType) { /* transition select is like a switch case */
+            TYPE_IPV4: parse_ipv4; /* if etherType = TYPE_IP4 we transition to parse_ipv4 */
+            default: accept; /* else we transition to accept state */
         }
     }
 
