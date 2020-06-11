@@ -1,28 +1,36 @@
-[P4 Tutorial](#p4-tutorial)
-* [P4 Tutorial Installation](#p4-tutorial-installation)
-* [Start the tutorial](#start-the-tutorial)
-* [What if you're stuck](#what-if-stuck)
+- [Getting started with P4](#getting-started-with-p4)
+  * [P4 Tutorial](#p4-tutorial)
+    + [P4 Tutorial Installation](#p4-tutorial-installation)
+    + [Start the tutorial](#start-the-tutorial)
+    + [What if stuck](#what-if-stuck)
+  * [P4 Cheat Sheet](#p4-cheat-sheet)
+    + [core.P4](#corep4)
+      - [error types](#error-types)
+      - [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
+      - [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
+      - [actions](#actions)
+      - [match-kind](#match-kind)
+    + [v1model.p4](#v1modelp4)
+      - [types of metadata](#types-of-metadata)
+      - [P4 program structure](#p4-program-structure)
+  * [Basic example](#basic-example)
+    + [Json topology](#json-topology)
+    + [P4 code](#p4-code)
+    + [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
 
-[Basic example](#basic-example)
-* [P4 code](#p4-code)
-* [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
-
-[P4 Cheat Sheet](#p4-tutorial)
-* [core.P4](#corep4)
-   + [error types](#error-types)
-   + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
-   + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
-   + [actions](#actions)
-   + [match-kind](#match-kind)
-* [v1model.p4](#v1modelp4)
-   + [types of metadata](#types-of-metadata)
-   + [P4 program structure](#p4-program-structure)
-
-# P4 Tutorial
-## core.P4
+# Getting started with P4
+## P4 Tutorial
+### P4 Tutorial Installation
+You can check the [P4 installation steps](/installation.md)
+### Start the tutorial
+Now that you're done with the basis of P4 language and the installation you can start the [tutorial](https://github.com/p4lang/tutorials)
+### What if stuck
+Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
+## P4 Cheat Sheet
+### core.P4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
 In core.p4 we have the main language features lik
-### error types
+#### error types
     NoError
     PacketTooShort
     NoMatch
@@ -30,24 +38,24 @@ In core.p4 we have the main language features lik
     HeaderTooShort
     ParserTimeout
     ParserInvalidArgument
-### functions used for packetsin used in parser
+#### functions used for packetsin used in parser
     extract (read bytes and advance cursor)
     advance (advance cursor)
     lookahead (read bytes without advancing the cursor)
-### functions used for packetsout used in deparser
+#### functions used for packetsout used in deparser
     emit (writing a header in the output packet)
-### actions
+#### actions
     NoAction()
-### match-kind
+#### match-kind
     exact (matches if both arguments are exactly the same)
     lpm   (matches with the longest prefix)
     ternary (matches if both adresses have same mask)
-## v1model.p4    
+### v1model.p4    
    We're normaly also gonna include v1model.p4 with #include <v1model.p4> 
    defined at https://github.com/p4lang/p4c/blob/master/p4include/v1model.p4
    
    v1model.p4 is the most used P4_16 architecture
-### types of metadata
+#### types of metadata
     standard_metadata:
     * ingress_port  -> the port that the data came from
     * egress_spec   -> we can assign the  output-port for the packet
@@ -59,7 +67,7 @@ In core.p4 we have the main language features lik
     struct{
        bit<9>      egress_spec;  // you can youse this to hold a copy for example
     }
- ### P4 program structure
+ #### P4 program structure
  | Section                  | example       |
 | ----------------------- |:---------------:|
 | Headers definition      | header ethernet |
@@ -72,8 +80,8 @@ In core.p4 we have the main language features lik
 | Switch (main)           |V1Switch(MyParser(),MyVerifyChecksum(),MyIngress(),MyEgress(),MyComputeChecksum(),MyDeparser()) main; |
 
 ## Basic example
+### Json topology
 ![](images/pod-topo.png)
-
 Here's the following Json topology code:
 ``` json
 {
@@ -355,12 +363,3 @@ As said earlier the control plane defines the default action, the action for eve
   ]
 }
 ```
-### P4 Tutorial Installation
-You can check the [P4 installation steps](/installation.md)
-### Start the tutorial
-Now that you're done with the basis of P4 language and the installation you can start the [tutorial](https://github.com/p4lang/tutorials)
-### What if stuck
-Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
-## References
-The P4 Language Consortium, P4 Tutorials, https://github.com/p4lang/tutorials,
-2017.
