@@ -13,4 +13,24 @@ you can download the latest Vagrant version with the command :
 sudo apt install vagrant
 ```
 ### For windows or mac
-you can download Vagrant from their [website](https://www.vagrantup.com/downloads.html)
+you can download the latest Vagrant version from their [website](https://www.vagrantup.com/downloads.html)
+## Clone the original P4 tutorial repository
+``` git
+git clone https://github.com/p4lang/tutorials.git
+```
+then
+``` git
+cd tutorials/vm
+```
+then
+``` git
+vagrant up
+```
+vagrant up takes over 1 hour. If it doesn't work you can
+``` git
+vagrant destroy
+```
+then try it again
+``` git
+vagrant up
+```
