@@ -341,3 +341,6 @@ You can check the [P4 installation steps](/installation.md)
 Now that you're done with the basis of P4 language and the installation you can start the [tutorial](https://github.com/p4lang/tutorials)
 ### What if you're stuck ?
 Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
+### References
+The P4 Language Consortium, P4 Tutorials, https://github.com/p4lang/tutorials,
+2017.
