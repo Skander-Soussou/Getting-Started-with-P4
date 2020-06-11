@@ -10,7 +10,7 @@ In the Vbox website you can find the [Download links](https://www.virtualbox.org
 ### For Linux
 you can download the latest Vagrant version with the command :
 ``` linux
-sudo apt install Vagrant
+sudo apt install vagrant
 ```
 ### For windows or mac
 you can download Vagrant from their [website](https://www.vagrantup.com/downloads.html)
