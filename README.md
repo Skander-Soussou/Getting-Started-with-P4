@@ -23,9 +23,10 @@ In core.p4 we have the main language features lik
     lpm   (matches with the longest prefix)
     ternary (matches if both adresses have same mask)
 ## v1model.p4    
-    We're normaly also gonna include v1model.p4 with #include <v1model.p4> 
-    defined at https://github.com/p4lang/p4c/blob/master/p4include/v1model.p4 
-    v1model.p4 is the most used P4_16 architecture
+   We're normaly also gonna include v1model.p4 with #include <v1model.p4> 
+   defined at https://github.com/p4lang/p4c/blob/master/p4include/v1model.p4
+   
+   v1model.p4 is the most used P4_16 architecture
 ### types of metadata:
     standard_metadata:
     * ingress_port  -> the port that the data came from
