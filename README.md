@@ -3,20 +3,22 @@
 * [Start the tutorial](#start-the-tutorial)
 * [What if you're stuck](#what-if-stuck)
 
+[Basic example](#basic-example)
+* [P4 code](#p4-code)
+* [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
+
 [P4 Cheat Sheet](#p4-tutorial)
 * [core.P4](#corep4)
-    + [error types](#error-types)
-    + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
-    + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
-    + [actions](#actions)
-    + [match-kind](#match-kind)
+ + [error types](#error-types)
+ + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
+ + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
+ + [actions](#actions)
+ + [match-kind](#match-kind)
 * [v1model.p4](#v1modelp4)
-  + [types of metadata](#types-of-metadata)
+ + [types of metadata](#types-of-metadata)
  + [P4 program structure](#p4-program-structure)
-* [Basic example](#basic-example)
-  + [P4 code](#p4-code)
-  + [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
-* [References](#references)
+
+[References](#references)
 
 # P4 Tutorial
 ## core.P4
