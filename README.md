@@ -9,14 +9,14 @@
 
 [P4 Cheat Sheet](#p4-tutorial)
 * [core.P4](#corep4)
- + [error types](#error-types)
- + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
- + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
- + [actions](#actions)
- + [match-kind](#match-kind)
+   + [error types](#error-types)
+   + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
+   + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
+   + [actions](#actions)
+   + [match-kind](#match-kind)
 * [v1model.p4](#v1modelp4)
- + [types of metadata](#types-of-metadata)
- + [P4 program structure](#p4-program-structure)
+   + [types of metadata](#types-of-metadata)
+   + [P4 program structure](#p4-program-structure)
 
 [References](#references)
 
