@@ -1,5 +1,8 @@
 - [P4 Tutorial](#p4-tutorial)
-  * [core.P4](#corep4)
+* [P4 Tutorial Installation](#p4-tutorial-installation)
+* [Start the tutorial](#start-the-tutorial)
+* [What if you're stuck](#what-if-stuck)
+* [core.P4](#corep4)
     + [error types](#error-types)
     + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
     + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
@@ -11,9 +14,6 @@
   * [Basic example](#basic-example)
     + [P4 code](#p4-code)
     + [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
-    + [P4 Tutorial Installation](#p4-tutorial-installation)
-    + [Start the tutorial](#start-the-tutorial)
-    + [What if you're stuck](#what-if-stuck)
   * [References](#references)
 
 # P4 Tutorial
