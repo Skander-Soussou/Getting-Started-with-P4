@@ -1,26 +1,28 @@
 - [P4 Tutorial](#p4-tutorial)
   * [core.P4](#corep4)
-    + [error types:](#error%20types)
-    + [functions used for packets_in (parser):](#functions-used-for-packets-in--parser--)
-    + [functions used for packets-out (deparser):](#functions-used-for-packets-out--deparser--)
-    + [actions:](#actions-)
-    + [match-kind:](#match-kind-)
+    + [error types](#error-types)
+    + [functions used for packets_in (parser)](#functions-used-for-packets-in--parser-)
+    + [functions used for packets-out (deparser)](#functions-used-for-packets-out--deparser-)
+    + [actions](#actions)
+    + [match-kind](#match-kind)
   * [v1model.p4](#v1modelp4)
-    + [types of metadata:](#types-of-metadata-)
-    + [P4 program structure:](#p4-program-structure-)
-  * [Basic example :](#basic-example--)
-    + [P4 code :](#p4-code--)
-    + [The static control plane for switch number 1:](#the-static-control-plane-for-switch-number-1-)
+    + [types of metadata](#types-of-metadata)
+    + [P4 program structure](#p4-program-structure)
+  * [Basic example](#basic-example)
+    + [P4 code](#p4-code)
+    + [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
     + [P4 Tutorial Installation](#p4-tutorial-installation)
     + [Start the tutorial](#start-the-tutorial)
-    + [What if you're stuck ?](#what-if-you-re-stuck--)
+    + [What if you're stuck](#what-if-you-re-stuck)
     + [References](#references)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # P4 Tutorial
 ## core.P4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
 In core.p4 we have the main language features lik
-### error types:
+### error types
     NoError
     PacketTooShort
     NoMatch
@@ -28,15 +30,15 @@ In core.p4 we have the main language features lik
     HeaderTooShort
     ParserTimeout
     ParserInvalidArgument
-### functions used for packets_in (parser):
+### functions used for packets_in (parser)
     extract (read bytes and advance cursor)
     advance (advance cursor)
     lookahead (read bytes without advancing the cursor)
-### functions used for packets-out (deparser):
+### functions used for packets-out (deparser)
     emit (writing a header in the output packet)
-### actions:
+### actions
     NoAction()
-### match-kind:
+### match-kind
     exact (matches if both arguments are exactly the same)
     lpm   (matches with the longest prefix)
     ternary (matches if both adresses have same mask)
@@ -45,7 +47,7 @@ In core.p4 we have the main language features lik
    defined at https://github.com/p4lang/p4c/blob/master/p4include/v1model.p4
    
    v1model.p4 is the most used P4_16 architecture
-### types of metadata:
+### types of metadata
     standard_metadata:
     * ingress_port  -> the port that the data came from
     * egress_spec   -> we can assign the  output-port for the packet
@@ -57,7 +59,7 @@ In core.p4 we have the main language features lik
     struct{
        bit<9>      egress_spec;  // you can youse this to hold a copy for example
     }
- ### P4 program structure:
+ ### P4 program structure
  | Section                  | example       |
 | ----------------------- |:---------------:|
 | Headers definition      | header ethernet |
@@ -69,7 +71,7 @@ In core.p4 we have the main language features lik
 | Deparser                | control MyDeparser(packet_out packet, in headers hdr) |
 | Switch (main)           |V1Switch(MyParser(),MyVerifyChecksum(),MyIngress(),MyEgress(),MyComputeChecksum(),MyDeparser()) main; |
 
-## Basic example :
+## Basic example
 ![](images/pod-topo.png)
 
 Here's the following Json topology code:
@@ -101,7 +103,7 @@ Here's the following Json topology code:
     ]
 }
 ```
-### P4 code :
+### P4 code
 ``` P4
 /* -*- P4_16 -*- */
 #include <core.p4>
@@ -292,7 +294,7 @@ MyComputeChecksum(),
 MyDeparser()
 ) main;
 ```
-### The static control plane for switch number 1:
+### The static control plane for switch number 1
 As said earlier the control plane defines the default action, the action for every match and the action parameters for tables.
 ``` json
 {
@@ -357,7 +359,7 @@ As said earlier the control plane defines the default action, the action for eve
 You can check the [P4 installation steps](/installation.md)
 ### Start the tutorial
 Now that you're done with the basis of P4 language and the installation you can start the [tutorial](https://github.com/p4lang/tutorials)
-### What if you're stuck ?
+### What if you're stuck
 Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
 ### References
 The P4 Language Consortium, P4 Tutorials, https://github.com/p4lang/tutorials,
