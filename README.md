@@ -1,8 +1,8 @@
 - [P4 Tutorial](#p4-tutorial)
   * [core.P4](#corep4)
     + [error types](#error-types)
-    + [functions used for packets_in (parser)](#functions-used-for-packets-in--parser-)
-    + [functions used for packets-out (deparser)](#functions-used-for-packets-out--deparser-)
+    + [functions used for packets_in (parser)](#functions-used-for-packetsin-parser-used-in-parser)
+    + [functions used for packets-out (deparser)](#functions-used-for-packetsout-deparser-used-in-deparser)
     + [actions](#actions)
     + [match-kind](#match-kind)
   * [v1model.p4](#v1modelp4)
@@ -13,7 +13,7 @@
     + [The static control plane for switch number 1](#the-static-control-plane-for-switch-number-1)
     + [P4 Tutorial Installation](#p4-tutorial-installation)
     + [Start the tutorial](#start-the-tutorial)
-    + [What if you're stuck](#what-if-you-re-stuck)
+    + [What if you're stuck](#what-if-stuck)
     + [References](#references)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
@@ -30,11 +30,11 @@ In core.p4 we have the main language features lik
     HeaderTooShort
     ParserTimeout
     ParserInvalidArgument
-### functions used for packets_in (parser)
+### functions used for packetsin used in parser
     extract (read bytes and advance cursor)
     advance (advance cursor)
     lookahead (read bytes without advancing the cursor)
-### functions used for packets-out (deparser)
+### functions used for packetsout used in deparser
     emit (writing a header in the output packet)
 ### actions
     NoAction()
@@ -359,7 +359,7 @@ As said earlier the control plane defines the default action, the action for eve
 You can check the [P4 installation steps](/installation.md)
 ### Start the tutorial
 Now that you're done with the basis of P4 language and the installation you can start the [tutorial](https://github.com/p4lang/tutorials)
-### What if you're stuck
+### What if stuck
 Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
 ### References
 The P4 Language Consortium, P4 Tutorials, https://github.com/p4lang/tutorials,
