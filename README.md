@@ -1,6 +1,6 @@
 - [P4 Tutorial](#p4-tutorial)
   * [core.P4](#corep4)
-    + [error types:](#error-types-)
+    + [error types:](#error%20types)
     + [functions used for packets_in (parser):](#functions-used-for-packets-in--parser--)
     + [functions used for packets-out (deparser):](#functions-used-for-packets-out--deparser--)
     + [actions:](#actions-)
