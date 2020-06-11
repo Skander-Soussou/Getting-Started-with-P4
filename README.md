@@ -11,11 +11,11 @@ In core.p4 we have the main language features lik
     ParserTimeout
     ParserInvalidArgument
 ### functions used for packets_in (parser):
-    extract
-    advance
-    lookahead
+    extract (read bytes and advance cursor)
+    advance (advance cursor)
+    lookahead (read bytes without advancing the cursor)
 ### functions used for packets-out (deparser):
-    emit
+    emit (writing a header in the output packet)
 ### actions:
     NoAction()
 ### match-kind:
@@ -271,4 +271,65 @@ MyEgress(),
 MyComputeChecksum(),
 MyDeparser()
 ) main;
+```
+### The static control plane for switch number 1:
+As said earlier the control plane defines the default action, the action for every match and the action parameters for tables.
+``` json
+{
+  "target": "bmv2",
+  "p4info": "build/basic.p4.p4info.txt",
+  "bmv2_json": "build/basic.json",
+  "table_entries": [
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "default_action": true,
+      "action_name": "MyIngress.drop",
+      "action_params": { }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.1.1", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:01:11",
+        "port": 1
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.2.2", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:02:22",
+        "port": 2
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.3.3", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:03:00",
+        "port": 3
+      }
+    },
+    {
+      "table": "MyIngress.ipv4_lpm",
+      "match": {
+        "hdr.ipv4.dstAddr": ["10.0.4.4", 32]
+      },
+      "action_name": "MyIngress.ipv4_forward",
+      "action_params": {
+        "dstAddr": "08:00:00:00:04:00",
+        "port": 4
+      }
+    }
+  ]
+}
 ```
