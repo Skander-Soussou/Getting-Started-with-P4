@@ -1,3 +1,23 @@
+- [P4 Tutorial](#p4-tutorial)
+  * [core.P4](#corep4)
+    + [error types:](#error-types-)
+    + [functions used for packets_in (parser):](#functions-used-for-packets-in--parser--)
+    + [functions used for packets-out (deparser):](#functions-used-for-packets-out--deparser--)
+    + [actions:](#actions-)
+    + [match-kind:](#match-kind-)
+  * [v1model.p4](#v1modelp4)
+    + [types of metadata:](#types-of-metadata-)
+    + [P4 program structure:](#p4-program-structure-)
+  * [Basic example :](#basic-example--)
+    + [P4 code :](#p4-code--)
+    + [The static control plane for switch number 1:](#the-static-control-plane-for-switch-number-1-)
+    + [P4 Tutorial Installation](#p4-tutorial-installation)
+    + [Start the tutorial](#start-the-tutorial)
+    + [What if you're stuck ?](#what-if-you-re-stuck--)
+    + [References](#references)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 # P4 Tutorial
 ## core.P4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
