@@ -142,6 +142,7 @@ parser MyParser(packet_in packet, /* simply the packet in */
     
     /* consider the parser as a state machine */
     state start { /* the states start and accept are hard-coded in the v1model */
+    /* there's also the reject state if needed */
         transition parse_ethernet; /* we transition to parse_ethernet state */
     }
 
