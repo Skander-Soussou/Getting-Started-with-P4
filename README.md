@@ -1,8 +1,8 @@
 - [P4 Tutorial](#p4-tutorial)
   * [core.P4](#corep4)
     + [error types](#error-types)
-    + [functions used for packets_in (parser)](#functions-used-for-packetsin-parser-used-in-parser)
-    + [functions used for packets-out (deparser)](#functions-used-for-packetsout-deparser-used-in-deparser)
+    + [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
+    + [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
     + [actions](#actions)
     + [match-kind](#match-kind)
   * [v1model.p4](#v1modelp4)
@@ -15,8 +15,6 @@
     + [Start the tutorial](#start-the-tutorial)
     + [What if you're stuck](#what-if-stuck)
     + [References](#references)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # P4 Tutorial
 ## core.P4
