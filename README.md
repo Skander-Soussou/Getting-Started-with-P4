@@ -202,7 +202,7 @@ control MyIngress(inout headers hdr,
             NoAction;
 	    /* the control plane chooses the action for each match */
         }
-        size = 1024;
+        size = 1024; /* how many entries should the table alocate */
         default_action = drop(); /* default action can be changed by the control plane (unless you declare it as const) */
     }
     
