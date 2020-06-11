@@ -6,7 +6,7 @@ You can either follow this turorial [install Vbox for linux Mint](https://lintut
 or search for Virtualbox 5.2 in the Software Manager.
 ### For Windows, Mac or other Linux distributions
 In the Vbox website you can find the [Download links](https://www.virtualbox.org/wiki/Download_Old_Builds_5_2) for your OS.
-## installing Vagrant
+## Installing Vagrant
 ### For Linux
 you can download the latest Vagrant version with the command :
 ``` linux
