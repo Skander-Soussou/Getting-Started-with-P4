@@ -334,3 +334,5 @@ As said earlier the control plane defines the default action, the action for eve
   ]
 }
 ```
+### P4 Tutorial Installation
+You can check the [P4 installation steps](/installation.md)
