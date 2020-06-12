@@ -42,6 +42,15 @@ In core.p4 we have the main language features lik
     extract (read bytes and advance cursor)
     advance (advance cursor)
     lookahead (read bytes without advancing the cursor)
++ packet_in
+![](images/start_state)
+![](images/start_state_2)
++ packet.extract(hdr.ethernet)
+![](images/parse_ethernet)
+![](images/parse_ethernet_2)
++ packet.extract(hdr.ipv4)
+![](images/parse_ipv4)
+![](images/parse_ipv4_2)
 #### functions used for packetsout used in deparser
     emit (writing a header in the output packet)
 #### actions
