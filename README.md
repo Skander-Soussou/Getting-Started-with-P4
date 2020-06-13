@@ -4,7 +4,7 @@
     + [Start the tutorial](#start-the-tutorial)
     + [What if stuck](#what-if-stuck)
   * [P4 Cheat Sheet](#p4-cheat-sheet)
-    + [core.P4](#corep4)
+    + [core.p4](#corep4)
       - [error types](#error-types)
       - [functions used for packetsin used in parser](#functions-used-for-packetsin-used-in-parser)
       - [functions used for packetsout used in deparser](#functions-used-for-packetsout-used-in-deparser)
@@ -27,7 +27,7 @@ Now that you're done with the basis of P4 language and the installation you can 
 ### What if stuck
 Here you can find [useful links](/Helpful_links.md) that helped me as a total beginner in networking and P4 language understand.
 ## P4 Cheat Sheet
-### core.P4
+### core.p4
 Every P4(16) code starts with #include <core.p4> defined at https://github.com/p4lang/p4c/blob/master/p4include/core.p4
 In core.p4 we have the main language features lik
 #### error types
