@@ -124,6 +124,24 @@ control MyVerifyChecksum(inout headers hdr, inout metadata meta) {
     apply {  }
 }
 
+parser parse_ethernet {
+   packet.extract(hdr.ethernet);
+    transition select(hdr.ethernet.etherType) {
+        0x0800    : parse_ipv4;
+        0x86DD    : parse_ipv6;
+        default   : accept;
+    }
+}
+
+parser parse_ipv4 {
+    packet.extract(hdr.ipv4);
+    transition select(hdr.ipv4.protocol){
+        0x11      : parse_udp;
+        0x06      : parse_tcp;
+        default   : accept;
+    }
+}
+
 
 /*************************************************************************
 **************  I N G R E S S   P R O C E S S I N G   *******************
